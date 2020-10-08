@@ -1,6 +1,7 @@
 package com.minty.demo.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name="product")
 public class Product {
@@ -8,13 +9,15 @@ public class Product {
     private Long productId;
     private String productName;
     private double price;
+    private String originCountry;
 
     public Product() {
     }
 
-    public Product(String productName, double price) {
+    public Product(String productName, double price, String originCountry) {
         this.productName = productName;
         this.price = price;
+        this.originCountry = originCountry;
     }
 
     public Long getProductId() {
@@ -41,4 +44,11 @@ public class Product {
         this.price = price;
     }
 
+    public String getOriginCountry() {
+        return originCountry;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
 }
