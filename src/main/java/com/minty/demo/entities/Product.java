@@ -9,15 +9,13 @@ public class Product {
     private Long productId;
     private String productName;
     private double price;
-    private String originCountry;
 
     public Product() {
     }
 
-    public Product(String productName, double price, String originCountry) {
+    public Product(String productName, double price) {
         this.productName = productName;
         this.price = price;
-        this.originCountry = originCountry;
     }
 
     public Long getProductId() {
@@ -42,13 +40,5 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getOriginCountry() {
-        return originCountry;
-    }
-
-    public void setOriginCountry(String originCountry) {
-        this.originCountry = originCountry;
     }
 }
