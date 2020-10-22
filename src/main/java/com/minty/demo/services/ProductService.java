@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService implements ProductInterface {
     @Autowired
     private ProductRepository productRepository;
+
+
 
     @Override
     public Product addProduct(Product product) {
@@ -25,6 +28,8 @@ public class ProductService implements ProductInterface {
 
     @Override
     public Product updateProduct(Product product) {
+        Optional<String> opt = Optional.ofNullable("bla bla bla");
+        opt.ifPresent(s -> System.out.println(s));
         return productRepository.save(product);
     }
 
