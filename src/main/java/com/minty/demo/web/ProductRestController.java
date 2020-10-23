@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,27 +18,41 @@ public class ProductRestController {
 
     @PostMapping("/products")
     public ResponseEntity<Product> addProduct(@RequestBody Product product){
-        return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
+        Product p = new Product("Great success", 120);
+        return new ResponseEntity<>(p, HttpStatus.CREATED);
+//        return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
     }
 
     @GetMapping("/products/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable(name="productId") Long productId) {
-        return new ResponseEntity<>(productService.getProduct(productId), HttpStatus.OK);
+        Product p = new Product("Great success", 120);
+//        return new ResponseEntity<>(productService.getProduct(productId), HttpStatus.OK);
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
     @PutMapping("/products")
     public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
-        return new ResponseEntity<>(productService.updateProduct(product), HttpStatus.OK);
+        Product p = new Product("Great success", 120);
+//        return new ResponseEntity<>(productService.updateProduct(product), HttpStatus.OK);
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
     @DeleteMapping("/products/{productId}")
     public ResponseEntity<HttpStatus> deleteProduct(@PathVariable(name="productId") Long productId) {
-        productService.deleteProduct(productId);
+//        productService.deleteProduct(productId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProductList() {
-        return new ResponseEntity<List<Product>> (productService.getProductList(), HttpStatus.OK);
+        Product p1 = new Product("Great success 1", 120);
+        Product p2 = new Product("Great success 2", 130);
+        Product p3 = new Product("Great success 3", 140);
+        List<Product> listProducts = new ArrayList<>();
+        listProducts.add(p1);
+        listProducts.add(p2);
+        listProducts.add(p3);
+//        return new ResponseEntity<List<Product>> (productService.getProductList(), HttpStatus.OK);
+        return new ResponseEntity<List<Product>> (listProducts, HttpStatus.OK);
     }
 }
